@@ -114,7 +114,7 @@
     "codelyzer": "~0.0.19",
     "tslint": "^3.7.1",
     "ts-helpers": "1.1.1",
-    "ts-node": "^0.8.0",
+    "ts-node": "^0.9.0",
     "typedoc": "^0.4.1",
     "typescript": "~1.8.10",
     "typings": "~1.0.3",
