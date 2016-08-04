@@ -85,7 +85,7 @@
     "moment": "^2.14.1",
     "normalize.css": "^4.2.0",
     "primeng": "^1.0.0-beta.8",
-    "primeui": "^4.1.12",
+    "primeui": "^4.1.13",
     "@angularclass/webpack-toolkit": "^1.3.3",
     "@angularclass/request-idle-callback": "^1.0.7",
     "ie-shim": "^0.1.0",
