@@ -8,10 +8,10 @@ import { Location }                       from '@angular/common';
 import { MdSnackBar }                     from '@angular/material';
 import { MdSnackBarRef }                  from '@angular/material';
 import { SimpleSnackBar }                 from '@angular/material';
-import { MdDialogRef, MdDialog,
- MdDialogConfig }                         from '@angular/material';
+import { MdDialogRef, MdDialog }          from '@angular/material';
 import { Router }                         from '@angular/router';
 
+import { SlimLoadingBarService }          from 'ng2-slim-loading-bar';
 import { Subscription }                   from 'rxjs/Subscription';
 
 import { AppState, Action }               from './app.service';
@@ -22,6 +22,8 @@ import { PatientService }                 from './api/api/patient.service';
 import { RoomService }                    from './api/api/room.service';
 import { CantyCTIService,
   IncomingCallState }                     from './cantyCti.service';
+import {
+  InsertTestExaminationsDialogComponent } from './insert-test-examinations.dialog';
 
 /*
  * App Component
@@ -49,6 +51,8 @@ export class AppComponent implements OnInit {
     private _state: AppState,
     private _location: Location,
     private router: Router,
+    private dialog: MdDialog,
+    private slimLoadingBarService: SlimLoadingBarService,
     private attendanceService: AttendanceService,
     private appointmentService: AppointmentService,
     private examinationService: ExaminationService,
@@ -59,7 +63,6 @@ export class AppComponent implements OnInit {
     private viewContainerRef: ViewContainerRef) {}
 
   public ngOnInit() {
-    this._state.ensureLocale(); // Make sure locale is set
     console.log('Locale is %s', localStorage.getItem('locale'));
 
     // Listen for title changes
@@ -160,82 +163,193 @@ export class AppComponent implements OnInit {
   }
 
   public deleteAllRooms() {
+    this.slimLoadingBarService.start();
     this.roomService.roomDeleteAllRooms()
     .subscribe(
-      (x) => console.log(`Deleted all ${x.deletedCount} rooms.`),
-      (err) => console.log(err)
+      (x) => {
+        this.snackBar.open(`Deleted ${x.deletedCount} rooms.`, null, {
+          duration: 3000
+        });
+        console.log(`Deleted all ${x.deletedCount} rooms.`);
+        this.slimLoadingBarService.complete();
+      },
+      (err) => {
+        console.log(err);
+        this.slimLoadingBarService.reset();
+      }
     );
   }
 
   public deleteAllAppointments() {
+    this.slimLoadingBarService.start();
     this.appointmentService.appointmentDeleteAllAppointments()
     .subscribe(
-      (x) => console.log(`Deleted all ${x.deletedCount} appointments.`),
-      (err) => console.log(err)
+      (x) => {
+        this.snackBar.open(`Deleted ${x.deletedCount} appointments.`, null, {
+          duration: 3000
+        });
+        console.log(`Deleted all ${x.deletedCount} appointments.`);
+        this.slimLoadingBarService.complete();
+      },
+      (err) => {
+        console.log(err);
+        this.slimLoadingBarService.reset();
+      }
     );
   }
 
   public deleteAllExaminations() {
+    this.slimLoadingBarService.start();
     this.examinationService.examinationDeleteAllExaminations()
     .subscribe(
-      (x) => console.log(`Deleted all ${x.deletedCount} examinations.`),
-      (err) => console.log(err)
+      (x) => {
+        this.snackBar.open(`Deleted ${x.deletedCount} examinations.`, null, {
+          duration: 3000
+        });
+        console.log(`Deleted all ${x.deletedCount} examinations.`);
+        this.slimLoadingBarService.complete();
+      },
+      (err) => {
+        console.log(err);
+        this.slimLoadingBarService.reset();
+      }
     );
   }
 
   public deleteAllAttendances() {
+    this.slimLoadingBarService.start();
     this.attendanceService.attendanceDeleteAllAttendances()
     .subscribe(
-      (x) => console.log(`Deleted all ${x.deletedCount} attendances.`),
-      (err) => console.log(err)
+      (x) => {
+        this.snackBar.open(`Deleted ${x.deletedCount} attendances.`, null, {
+          duration: 3000
+        });
+        console.log(`Deleted all ${x.deletedCount} attendances.`);
+        this.slimLoadingBarService.complete();
+      },
+      (err) => {
+        console.log(err);
+        this.slimLoadingBarService.reset();
+      }
     );
   }
 
   public deleteAllPatients() {
+    this.slimLoadingBarService.start();
     this.patientService.patientDeleteAllPatients()
     .subscribe(
-      (x) => console.log(`Deleted all ${x.deletedCount} patients.`),
-      (err) => console.log(err)
+      (x) => {
+        this.snackBar.open(`Deleted ${x.deletedCount} patients.`, null, {
+          duration: 3000
+        });
+        console.log(`Deleted all ${x.deletedCount} patients.`);
+        this.slimLoadingBarService.complete();
+      },
+      (err) => {
+        console.log(err);
+        this.slimLoadingBarService.reset();
+      }
     );
   }
 
   public insertTestPatients() {
+    this.slimLoadingBarService.start();
     this.patientService.patientInsertTestData(localStorage.getItem('locale'))
     .subscribe(
-      (x) => console.log(`Inserted ${x.insertCount} test entries for patients.`),
-      (err) => console.log(err)
+      (x) => {
+        this.snackBar.open(`Inserted ${x.insertCount} test entries for patients.`, null, {
+          duration: 3000
+        });
+        console.log(`Inserted ${x.insertCount} test entries for patients.`);
+        this.slimLoadingBarService.complete();
+      },
+      (err) => {
+        console.log(err);
+        this.slimLoadingBarService.reset();
+      }
     );
   }
 
   public insertTestExaminations() {
-    this.examinationService.examinationInsertTestData(localStorage.getItem('locale'))
-    .subscribe(
-      (x) => console.log(`Inserted ${x.insertCount} test entries for examinations.`),
-      (err) => console.log(err)
+    this.dialog.open(InsertTestExaminationsDialogComponent).afterClosed().subscribe(
+      (result) => {
+        if (result) {
+          this.slimLoadingBarService.start();
+          this.examinationService.examinationInsertTestData(
+            result.sectionNumber,
+            localStorage.getItem('locale')
+          )
+          .subscribe(
+            (x) => {
+              this.snackBar.open(
+                `Inserted ${x.insertCount} examinations from ${result.sectionTitle}.`,
+                null,
+                { duration: 3000 }
+              );
+              console.log(`Inserted ${x.insertCount} examinations from ${result.sectionTitle}.`);
+              this.slimLoadingBarService.complete();
+            },
+            (err) => {
+              console.log(err);
+              this.slimLoadingBarService.reset();
+            }
+          );
+        }
+      }
     );
   }
 
   public insertTestRooms() {
+    this.slimLoadingBarService.start();
     this.roomService.roomInsertTestData(localStorage.getItem('locale'))
     .subscribe(
-      (x) => console.log(`Inserted ${x.insertCount} test entries for rooms.`),
-      (err) => console.log(err)
+      (x) => {
+        this.snackBar.open(`Inserted ${x.insertCount} test entries for rooms.`, null, {
+          duration: 3000
+        });
+        console.log(`Inserted ${x.insertCount} test entries for rooms.`);
+        this.slimLoadingBarService.complete();
+      },
+      (err) => {
+        console.log(err);
+        this.slimLoadingBarService.reset();
+      }
     );
   }
 
   public createRandomAppointments() {
+    this.slimLoadingBarService.start();
     this.appointmentService.appointmentGenerateRandomAppointments()
     .subscribe(
-      (x) => console.log(`Created random appointments.`),
-      (err) => console.log(err)
+      (x) => {
+        this.snackBar.open('Created random appointments.', null, {
+          duration: 3000
+        });
+        console.log('Created random appointments.');
+        this.slimLoadingBarService.complete();
+      },
+      (err) => {
+        console.log(err);
+        this.slimLoadingBarService.reset();
+      }
     );
   }
 
   public createRandomAttendances() {
+    this.slimLoadingBarService.start();
     this.attendanceService.attendanceGenerateRandomAttendances()
     .subscribe(
-      (x) => console.log(`Created random attendances.`),
-      (err) => console.log(err)
+      (x) => {
+        this.snackBar.open('Created random attendances.', null, {
+          duration: 3000
+        });
+        console.log('Created random attendances.');
+        this.slimLoadingBarService.complete();
+      },
+      (err) => {
+        console.log(err);
+        this.slimLoadingBarService.reset();
+      }
     );
   }
 }

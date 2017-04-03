@@ -4,7 +4,7 @@
     <md-card-title>
       {{model?.patient?.givenName}} {{model?.patient?.surname}}
       <button *ngIf="model.patient" md-icon-button [routerLink]="['/appointment/patient', model.patient.id]"
-              [mdTooltip]="trans.patientTooltip" mdTooltipPosition="after" mdTooltipShowDelay="500">
+              mdTooltip="Go to patient" i18n-mdTooltip mdTooltipPosition="after" mdTooltipShowDelay="500">
         <md-icon class="md-24">person</md-icon>
       </button>
     </md-card-title>
@@ -32,7 +32,7 @@
       <h3 i18n="Section header for appointment form">Patient</h3>
        <div>
           <md-input-container class="patient-input">
-             <input type="text" mdInput [formControl]="patientControl" [mdAutocomplete]="patientAuto" [(ngModel)]="model.patient" required="true" name="patient" [placeholder]="trans.patient">
+             <input type="text" mdInput [formControl]="patientControl" [mdAutocomplete]="patientAuto" [(ngModel)]="model.patient" required="true" name="patient" i18n-placeholder placeholder="Patient">
           </md-input-container>
           <md-autocomplete #patientAuto="mdAutocomplete" [displayWith]="patientDisplayFn">
             <md-option *ngFor="let patient of filteredPatients | async" [value]="patient">
@@ -53,24 +53,24 @@
 
         <h3 i18n="Section header for appointment form">Details</h3>
 
-        <!-- Date and time input -->
-        <div>
-          <md2-datepicker [(ngModel)]="model.date" type="date" name="date" required="true" [placeholder]="trans.date"></md2-datepicker>
-          <md2-datepicker [(ngModel)]="model.time" type="time" name="time" required="true" [placeholder]="trans.time"></md2-datepicker>
-        </div>
-
         <!-- Duration input -->
         <div>
           <md-input-container class="duration-input">
-            <input mdInput [formControl]="durationControl" [(ngModel)]="model.duration" [placeholder]="trans.duration" required="true" name="duration" pattern="^[0-9]+H[0-9]+M|[0-9]+[M|H]$">
+            <input mdInput [formControl]="durationControl" [(ngModel)]="model.duration" placeholder="Duration" i18n-placeholder required="true" name="duration" pattern="^[0-9]+H[0-9]+M|[0-9]+[M|H]$">
             <md-hint align="end" i18n class="example-input-hint">e.g.: 30M, 1H, 1H40M etc.</md-hint>
           </md-input-container>
+        </div>
+
+        <!-- Date and time input -->
+        <div class="datetime-input">
+          <md2-datepicker [(ngModel)]="model.date" type="date" name="date" required="true" placeholder="Date" i18n-placeholder></md2-datepicker>
+          <md2-datepicker [(ngModel)]="model.time" type="time" name="time" required="true" placeholder="Time" i18n-placeholder></md2-datepicker>
         </div>
 
         <!-- Title input -->
         <div>
           <md-input-container class="title-input">
-            <input mdInput #title [(ngModel)]="model.title" [placeholder]="trans.title" maxlength="20" name="title">
+            <input mdInput #title [(ngModel)]="model.title" placeholder="Title" i18n-placeholder maxlength="20" name="title">
             <md-hint align="end">{{title.value.length}} / 20</md-hint>
           </md-input-container>
         </div>
@@ -78,7 +78,7 @@
         <!-- Description input -->
         <div style="padding-bottom: 24px;">
           <md-input-container class="description-input-container">
-            <textarea mdInput #description [(ngModel)]="model.description" [placeholder]="trans.description" maxlength="100" name="description" class="description-textarea">
+            <textarea mdInput #description [(ngModel)]="model.description" placeholder="Description" i18n-placeholder maxlength="100" name="description" class="description-textarea">
             </textarea>
             <md-hint align="end">{{description.value.length}} / 100</md-hint>
           </md-input-container>
@@ -86,7 +86,7 @@
 
         <!-- Room select -->
         <div>
-          <md-select [placeholder]="trans.room" [(ngModel)]="model.room" name="room" required="true" class="room-select">
+          <md-select placeholder="Room" i18n-placeholder [(ngModel)]="model.room" name="room" required="true" class="room-select">
             <md-option *ngFor="let r of rooms" [value]="r">
               {{r?.name}}
             </md-option>

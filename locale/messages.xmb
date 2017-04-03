@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE messagebundle [
+<!ELEMENT messagebundle (msg)*>
+<!ATTLIST messagebundle class CDATA #IMPLIED>
+
+<!ELEMENT msg (#PCDATA|ph|source)*>
+<!ATTLIST msg id CDATA #IMPLIED>
+<!ATTLIST msg seq CDATA #IMPLIED>
+<!ATTLIST msg name CDATA #IMPLIED>
+<!ATTLIST msg desc CDATA #IMPLIED>
+<!ATTLIST msg meaning CDATA #IMPLIED>
+<!ATTLIST msg obsolete (obsolete) #IMPLIED>
+<!ATTLIST msg xml:space (default|preserve) "default">
+<!ATTLIST msg is_hidden CDATA #IMPLIED>
+
+<!ELEMENT source (#PCDATA)>
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<messagebundle>
+  <msg id="5768044489931719511">Insert test examinations</msg>
+  <msg id="4391594328797724569">Examination group</msg>
+  <msg id="6943486270557756671">CANCEL</msg>
+  <msg id="8998179362936748717">OK</msg>
+  <msg id="3946721176383090137">Attendance List</msg>
+  <msg id="5403684285319082289">Month</msg>
+  <msg id="5141352019990967744">Week</msg>
+  <msg id="6048892649018070225">Today</msg>
+  <msg id="6318077128670918892">Rooms</msg>
+  <msg id="1069523139277190436">Statistics</msg>
+  <msg id="7965032034356317860">Anonymized View</msg>
+  <msg id="415106153504775843">
+        Insert Test-Examinations
+      </msg>
+  <msg id="4599976567754661271">Insert Test-Rooms</msg>
+  <msg id="8498235134953191649">Insert Test-Patients</msg>
+  <msg id="7465726808901155236">
+        Create random appointments
+      </msg>
+  <msg id="4737876432994313016">
+        Create random attendances
+      </msg>
+  <msg id="7106166019823219953">Delete All Appointments</msg>
+  <msg id="5749605140101413221">Delete All Attendances</msg>
+  <msg id="4266813672870887396">Delete All Rooms</msg>
+  <msg id="4374910707309069741">Delete All Patients</msg>
+  <msg id="7547031751567416307">Delete All Examinations</msg>
+  <msg id="5684146663812778164" desc="Title for appointment accepted card">Appointment Accepted</msg>
+  <msg id="7375266372707374489">You have successfully accepted your appointment.</msg>
+  <msg id="4361568045684156139">Details:</msg>
+  <msg id="7926476270796216255"><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph></msg>
+  <msg id="5203478643577307176" desc="Title for offer error">Appointment Expired</msg>
+  <msg id="603087466023371045" desc="Error message telling an offer has expired">
+        It looks like this offer for an appointment already expired.
+      </msg>
+  <msg id="599911257057896153" desc="Hint that it&apos;s always possible to get a new offer">
+        You can always get a new one by mailing to
+        <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>
+          auto-appointment@sebastianhaas.online
+        <ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        or calling us directly at 269-852-0681.
+      </msg>
+  <msg id="9172233176401579786" desc="Header for section of scheduled patients">Scheduled</msg>
+  <msg id="2723161712102414497" desc="Blank message">No more patients scheduled for today.</msg>
+  <msg id="8020513601459374394" desc="Appointment scheduled info">
+          Scheduled for <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>, <ph name="INTERPOLATION_1"><ex>INTERPOLATION_1</ex></ph>
+        </msg>
+  <msg id="8114723251646157009" desc="Check in button">CHECK IN</msg>
+  <msg id="9001216289639080925" desc="Header for section of waiting patients">Waiting</msg>
+  <msg id="6537280632185371778" desc="Blank message">No patients waiting at the moment.</msg>
+  <msg id="804174070848809908" desc="Appointment waiting duration info">
+          Waiting <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>
+        </msg>
+  <msg id="2586374053704956276" desc="Under treatment button">UNDER TREATMENT</msg>
+  <msg id="6501911559208512100" desc="Header for section of patients under treatment">Under Treatment</msg>
+  <msg id="4115105339155150429" desc="Blank message">No patients under treatment.</msg>
+  <msg id="5445605358567038761" desc="Appointment under treatment duration info">
+          Under treatment <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>
+        </msg>
+  <msg id="6541895445597460994" desc="Check out button">CHECK OUT</msg>
+  <msg id="340430316261570792" desc="Header for section of finished patients">Finished</msg>
+  <msg id="1816561559039626120" desc="Blank message">No patients finished yet.</msg>
+  <msg id="9041435914545776111" desc="Appointment finished duration info">
+          Has been under treatment for <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph> minutes
+        </msg>
+  <msg id="1017586119194429609">Go to patient</msg>
+  <msg id="4849682202885816332">On <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph> at <ph name="INTERPOLATION_1"><ex>INTERPOLATION_1</ex></ph></msg>
+  <msg id="1571190680532015078">EDIT</msg>
+  <msg id="2744999950711585997">New Appointment</msg>
+  <msg id="4878804537443692147">Update Appointment</msg>
+  <msg id="2802536080288229427" desc="Section header for appointment form">Patient</msg>
+  <msg id="8773085206482460384" desc="Section header for appointment form">Examinations</msg>
+  <msg id="5028777105388019087" desc="Section header for appointment form">Details</msg>
+  <msg id="7410432243549869948">Duration</msg>
+  <msg id="6852688189905272961">e.g.: 30M, 1H, 1H40M etc.</msg>
+  <msg id="3973931101896534797">Date</msg>
+  <msg id="8497528947328199741">Time</msg>
+  <msg id="5701618810648052610">Title</msg>
+  <msg id="4902817035128594900">Description</msg>
+  <msg id="518297907399160251">Room</msg>
+  <msg id="3973903796975984331" desc="Section hedaer for appointment form">
+            Reminders
+          </msg>
+  <msg id="3814531498643798126">
+                Send email reminder <ph name="START_TAG_SPAN"><ex>&lt;span&gt;</ex></ph>(<ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>)<ph name="CLOSE_TAG_SPAN"><ex>&lt;/span&gt;</ex></ph>
+              </msg>
+  <msg id="924871221995487293">
+                Send text message reminder <ph name="START_TAG_SPAN"><ex>&lt;span&gt;</ex></ph>(<ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>)<ph name="CLOSE_TAG_SPAN"><ex>&lt;/span&gt;</ex></ph>
+              </msg>
+  <msg id="6671956963490165282">SAVE</msg>
+  <msg id="822450576504346146">SUGGESTED TIME SLOTS</msg>
+  <msg id="4980869481017747387" desc="Date overview in suggested appoitment">In <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph></msg>
+  <msg id="7389781389820294819"><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>, <ph name="INTERPOLATION_1"><ex>INTERPOLATION_1</ex></ph> Minutes</msg>
+  <msg id="1465965347242159513">APPLY</msg>
+  <msg id="2578809575442554488">Do you really want to cancel this appointment?</msg>
+  <msg id="2289869855144545114">YES</msg>
+  <msg id="6466969409681865142">NO</msg>
+  <msg id="1387842587014555353">Patient Data</msg>
+  <msg id="5606670937609956145">Loading patient data...</msg>
+  <msg id="3169678473994582107">UPCOMING APPOINTMENTS</msg>
+  <msg id="4759841243260930675">CANCEL APPOINTMENT</msg>
+  <msg id="927695060918605272">Delays by Day</msg>
+  <msg id="6040289162937903979">Sorry, no attendances yet.</msg>
+  <msg id="3796846256452160927">Check in walk-in patient</msg>
+  <msg id="8493572909014401245">SAVE &amp; CHECK IN</msg>
+</messagebundle>

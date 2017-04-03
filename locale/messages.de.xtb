@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE translationbundle [
+<!ELEMENT translationbundle (translation)*>
+<!ATTLIST translationbundle lang CDATA #REQUIRED>
+
+<!ELEMENT translation (#PCDATA|ph)*>
+<!ATTLIST translation id CDATA #REQUIRED>
+<!ATTLIST translation desc CDATA #IMPLIED>
+<!ATTLIST translation meaning CDATA #IMPLIED>
+<!ATTLIST translation xml:space (default|preserve) "default">
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<translationbundle lang="de">
+  <translation id="5768044489931719511">Testuntersuchungen anlegen</translation>
+  <translation id="4391594328797724569">Fachgebiet</translation>
+  <translation id="6943486270557756671">ABBRECHEN</translation>
+  <translation id="8998179362936748717">OK</translation>
+  <translation id="3946721176383090137">Anwesenheit</translation>
+  <translation id="5403684285319082289">Monat</translation>
+  <translation id="5141352019990967744">Woche</translation>
+  <translation id="6048892649018070225">Heute</translation>
+  <translation id="6318077128670918892">Behandlungsräume</translation>
+  <translation id="1069523139277190436">Statistik</translation>
+  <translation id="7965032034356317860">Anonyme Wochenansicht</translation>
+  <translation id="415106153504775843">Testuntersuchungen anlegen</translation>
+  <translation id="4599976567754661271">Testräume anlegen</translation>
+  <translation id="8498235134953191649">Testpatienten anlegen</translation>
+  <translation id="7465726808901155236">Zufällige Termine erzeugen</translation>
+  <translation id="4737876432994313016">Zufällige Besuche erzeugen</translation>
+  <translation id="7106166019823219953">Alle Termine löschen</translation>
+  <translation id="5749605140101413221">Alle Besuche löschen</translation>
+  <translation id="4266813672870887396">Alle Behandungsräume löschen</translation>
+  <translation id="4374910707309069741">Alle Patienten löschen</translation>
+  <translation id="7547031751567416307">Alle Behandlungen löschen</translation>
+  <translation id="5684146663812778164" desc="Title for appointment accepted card">Termin bestätigt</translation>
+  <translation id="7375266372707374489">Sie haben Ihren Termin erfolgreich bestätigt.</translation>
+  <translation id="4361568045684156139">Details:</translation>
+  <translation id="7926476270796216255">
+    <ph name="INTERPOLATION">
+      <ex>INTERPOLATION</ex>
+    </ph>
+  </translation>
+  <translation id="5203478643577307176" desc="Title for offer error">Terminangebot abgelaufen</translation>
+  <translation id="603087466023371045" desc="Error message telling an offer has expired">Ihr Terminangebot ist bereits ausgelaufen.</translation>
+  <translation id="599911257057896153" desc="Hint that it's always possible to get a new offer">Sie können jederzeit neue Terminangebote anfordern, indem sie an
+<ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>
+auto-appointment@sebastianhaas.online
+<ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+schreiben, oder uns einfach unter 01 123 123 anrufen.</translation>
+  <translation id="9172233176401579786" desc="Header for section of scheduled patients">Geplant</translation>
+  <translation id="2723161712102414497" desc="Blank message">Es sind keine weiteren Patienten für heute geplant.</translation>
+  <translation id="8020513601459374394" desc="Appointment scheduled info">Geplant für <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>, <ph name="INTERPOLATION_1"><ex>INTERPOLATION_1</ex></ph></translation>
+  <translation id="8114723251646157009" desc="Check in button">ANMELDEN</translation>
+  <translation id="9001216289639080925" desc="Header for section of waiting patients">Warteraum</translation>
+  <translation id="6537280632185371778" desc="Blank message">Momentan warten keine Patienten.</translation>
+  <translation id="804174070848809908" desc="Appointment waiting duration info">Wartet <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph></translation>
+  <translation id="2586374053704956276" desc="Under treatment button">AUFGERUFEN</translation>
+  <translation id="6501911559208512100" desc="Header for section of patients under treatment">In Behandlung</translation>
+  <translation id="4115105339155150429" desc="Blank message">Es sind keine Patienten in Behandlung.</translation>
+  <translation id="5445605358567038761" desc="Appointment under treatment duration info">Wartet <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph></translation>
+  <translation id="6541895445597460994" desc="Check out button">ABMELDEN</translation>
+  <translation id="340430316261570792" desc="Header for section of finished patients">Behandlung abgeschlossen</translation>
+  <translation id="1816561559039626120" desc="Blank message">Keine Behandlung durchgeführt.</translation>
+  <translation id="9041435914545776111" desc="Appointment finished duration info">War für <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph> Minuten unter Behandlung</translation>
+  <translation id="1017586119194429609">Zum Patienten</translation>
+  <translation id="4849682202885816332">Um <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph> at <ph name="INTERPOLATION_1"><ex>INTERPOLATION_1</ex></ph></translation>
+  <translation id="1571190680532015078">BEARBEITEN</translation>
+  <translation id="2744999950711585997">Neuer Termin</translation>
+  <translation id="4878804537443692147">Termin bearbeiten</translation>
+  <translation id="2802536080288229427" desc="Section header for appointment form">Patient</translation>
+  <translation id="8773085206482460384" desc="Section header for appointment form">Behandlungen</translation>
+  <translation id="5028777105388019087" desc="Section header for appointment form">Details</translation>
+  <translation id="7410432243549869948">Dauer</translation>
+  <translation id="6852688189905272961">z.B.: 30M, 1H, 1H40M etc.</translation>
+  <translation id="3973931101896534797">Datum</translation>
+  <translation id="8497528947328199741">Uhrzeit</translation>
+  <translation id="5701618810648052610">Titel</translation>
+  <translation id="4902817035128594900">Beschreibung</translation>
+  <translation id="518297907399160251">Behandlungsraum</translation>
+  <translation id="3973903796975984331" desc="Section hedaer for appointment form">Erinnerungen</translation>
+  <translation id="3814531498643798126">Erinnerung per Email senden <ph name="START_TAG_SPAN"><ex>&lt;span&gt;</ex></ph>(<ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>)<ph name="CLOSE_TAG_SPAN"><ex>&lt;/span&gt;</ex></ph></translation>
+  <translation id="924871221995487293">Erinnerung per SMS senden <ph name="START_TAG_SPAN"><ex>&lt;span&gt;</ex></ph>(<ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>)<ph name="CLOSE_TAG_SPAN"><ex>&lt;/span&gt;</ex></ph></translation>
+  <translation id="6671956963490165282">SPEICHERN</translation>
+  <translation id="822450576504346146">TERMINVORSCHLÄGE</translation>
+  <translation id="4980869481017747387" desc="Date overview in suggested appoitment">In <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph></translation>
+  <translation id="7389781389820294819"><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>, <ph name="INTERPOLATION_1"><ex>INTERPOLATION_1</ex></ph> Minuten</translation>
+  <translation id="1465965347242159513">ÜBERNEHMEN</translation>
+  <translation id="2578809575442554488">Wollen Sie diesen Termin löschen?</translation>
+  <translation id="2289869855144545114">JA</translation>
+  <translation id="6466969409681865142">NEIN</translation>
+  <translation id="1387842587014555353">Patientendaten</translation>
+  <translation id="5606670937609956145">Patientendaten werden geladen...</translation>
+  <translation id="3169678473994582107">ZUKÜNFTIGE TERMINE</translation>
+  <translation id="4759841243260930675">TERMIN LÖSCHEN</translation>
+  <translation id="927695060918605272">VERSPÄTUNGEN NACH TAG</translation>
+  <translation id="6040289162937903979">Es sind noch keine Patienten behandelt worden.</translation>
+  <translation id="3796846256452160927">Akutpatienten anmelden</translation>
+  <translation id="8493572909014401245">SPEICHERN &amp; ANMELDEN</translation>
+</translationbundle>

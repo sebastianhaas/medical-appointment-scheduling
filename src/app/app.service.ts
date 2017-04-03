@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject }    from 'rxjs/Rx';
 
-import * as moment    from 'moment';
-
-declare var navigator: any; // navigator.languages not available yet
-
 export type InternalStateType = {
   [key: string]: any
 };
@@ -35,24 +31,6 @@ export class AppState {
    */
   public primaryAction: Subject<Action> = new Subject<Action>();
 
-  /**
-   * This sets the locale depending on the browser configuration.
-   * The value is extracted from either `navigator.languages[0]`,
-   * `navigator.language` or `navigator.userLanguage` and persisted to
-   * localStorage, where all other parts of the application take it from.
-   */
-  public ensureLocale() {
-    if (!localStorage.getItem('locale')) {
-      let locale = navigator.languages
-        ? navigator.languages[0]
-        : (navigator.language || navigator.userLanguage);
-      localStorage.setItem('locale', locale);
-      this.setMomentLocale(locale);
-    } else {
-      this.setMomentLocale(localStorage.getItem('locale'));
-    }
-  }
-
   // already return a clone of the current state
   public get state() {
     return this._state = this._clone(this._state);
@@ -71,13 +49,6 @@ export class AppState {
   public set(prop: string, value: any) {
     // internally mutate our state
     return this._state[prop] = value;
-  }
-
-  /**
-   * This sets the locale for all newly create moments globally.
-   */
-  private setMomentLocale(locale: string) {
-    moment.locale(locale);
   }
 
   private _clone(object: InternalStateType) {

@@ -12,13 +12,7 @@
 
 
 
-/**
- * Information related to the outcome of the operation
- */
-export interface InlineResponse2002 {
-    /**
-     * The number of instances updated
-     */
-    count?: number;
+export interface InlineResponse2005 {
+    insertCount?: number;
 
 }

@@ -23,8 +23,8 @@ import { PatientCancelAppointmentDialogComponent } from './patient-cancel-appoin
 export class PatientComponent implements OnInit {
 
   public patient: Patient;
+  public appointments: ViewAppointment[];
 
-  private appointments: ViewAppointment[];
   private dialogRef: MdDialogRef<PatientCancelAppointmentDialogComponent>;
   private localeHumanizer: any;
 

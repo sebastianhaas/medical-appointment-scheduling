@@ -29,16 +29,6 @@ md-sidenav-container, .my-content {
   height: 64px;
 }
 
-@media (max-width:600px) {
-  .toolbar-placeholder-fix {
-    height: 54px;
-  }
-}
-
-.md-toolbar-fill-remaining-space {
-  flex: 1 1 auto;
-}
-
 .slim-loading-bar {
   position: absolute;
   top: 64px;
@@ -46,8 +36,26 @@ md-sidenav-container, .my-content {
   width: 100%;
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
+  .toolbar-placeholder-fix {
+    height: 54px;
+  }
+
   .slim-loading-bar {
     top: 56px;
   }
+}
+
+@media (max-width: 960px) and (orientation: landscape) {
+  .toolbar-placeholder-fix {
+    height: 48px;
+  }
+
+  .slim-loading-bar {
+    top: 48px;
+  }
+}
+
+.md-toolbar-fill-remaining-space {
+  flex: 1 1 auto;
 }

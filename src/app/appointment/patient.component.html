@@ -1,37 +1,41 @@
 <div id="wrapper" class="card-centered-wrapper">
 
-  <!-- Patient information -->
-  <md-card class="card-centered-600">
-    <md-card-title i18n>Patient Data</md-card-title>
-    <p *ngIf="!patient" i18n>Loading patient data...</p>
-    <div *ngIf="patient">
-      <p>{{patient.givenName}} {{patient.surname}}</p>
-      <p>{{patient.svn}}</p>
-      <p>{{patient.dateOfBirth | amDateFormat:'LL'}}</p>
-      <p>{{patient.phone}}</p>
-      <p>{{patient.email}}</p>
-      <p>{{patient.streetAddress}}<br />{{patient.zipCode}} {{patient.city}}<br />{{patient.country}}</p>
-    </div>
-  </md-card>
+  <div class="force-single-line-hotfix">
 
-  <!-- Section title -->
-  <div class="section-title" i18n>UPCOMING APPOINTMENTS</div>
+    <!-- Patient information -->
+    <md-card class="card-centered-600">
+      <md-card-title i18n>Patient Data</md-card-title>
+      <p *ngIf="!patient" i18n>Loading patient data...</p>
+      <div *ngIf="patient">
+        <p>{{patient.givenName}} {{patient.surname}}</p>
+        <p>{{patient.svn}}</p>
+        <p>{{patient.dateOfBirth | amDateFormat:'LL'}}</p>
+        <p>{{patient.phone}}</p>
+        <p>{{patient.email}}</p>
+        <p>{{patient.streetAddress}}<br />{{patient.zipCode}} {{patient.city}}<br />{{patient.country}}</p>
+      </div>
+    </md-card>
 
-  <!-- Show scheduled appointments for patient -->
-  <md-card *ngFor="let appointment of appointments" class="card-centered-600">
-    <md-card-title>{{appointment.start | amDateFormat:'LL'}}</md-card-title>
-    <md-card-subtitle i18n>
-      {{appointment.start | amDateFormat:'LT'}}, {{formatDuration(appointment)}}
-    </md-card-subtitle>
-    <md-card-content>
-      <ul>
-        <li *ngFor="let exam of appointment.examinations">{{exam.name}}</li>
-      </ul>
-    </md-card-content>
-    <md-card-actions align="end">
-      <button md-button routerLink="/appointment/{{appointment.id}}" i18n>EDIT</button>
-      <button md-button (click)="openCancelAppointmentDialog(appointment)" i18n>CANCEL APPOINTMENT</button>
-    </md-card-actions>
-  </md-card>
+    <!-- Section title -->
+    <div *ngIf="appointments && appointments.length" class="section-title" i18n>UPCOMING APPOINTMENTS</div>
+
+    <!-- Show scheduled appointments for patient -->
+    <md-card *ngFor="let appointment of appointments" class="card-centered-600">
+      <md-card-title>{{appointment.start | amDateFormat:'LL'}}</md-card-title>
+      <md-card-subtitle>
+        {{appointment.start | amDateFormat:'LT'}}, {{formatDuration(appointment)}}
+      </md-card-subtitle>
+      <md-card-content>
+        <ul>
+          <li *ngFor="let exam of appointment.examinations">{{exam.name}}</li>
+        </ul>
+      </md-card-content>
+      <md-card-actions align="end">
+        <button md-button routerLink="/appointment/{{appointment.id}}" i18n>EDIT</button>
+        <button md-button (click)="openCancelAppointmentDialog(appointment)" i18n>CANCEL APPOINTMENT</button>
+      </md-card-actions>
+    </md-card>
+
+  </div>
 
 </div>

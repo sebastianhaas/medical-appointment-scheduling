@@ -22,6 +22,9 @@ $ npm start
 ```
 This requires node >=4 together with npm to be installed. This repository doesn't contain any backend, you need to have an instance of [medical-appointment-scheduling-server](https://github.com/sebastianhaas/medical-appointment-scheduling-server) running.
 
+## Internationalization
+Prepared for internationalization. The application is currently available in English and German. Translations are managed on POEditor.com in a [publicly available project](https://poeditor.com/projects/view?id=102821). The locale will be determined based on the user's browser settings and persisted to local storage. The logic can be found [here](https://github.com/sebastianhaas/medical-appointment-scheduling/blob/master/src/app/i18n-providers.ts#L47).
+
 ## Tests
 Both unit and end-to-end tests do exist for most parts of the application.
 
@@ -61,6 +64,10 @@ Code quality is ensured by `tslint` with `codelyzer` for Angular 2 specific lint
 
 ### Documentation
 * [Typedoc](https://github.com/TypeStrong/typedoc)
+
+### Internationalization
+* [Angular 2's `ng-xi18n` tool](https://angular.io/docs/ts/latest/cookbook/i18n.html#!#ng-xi18n)
+* [POEditor](https://poeditor.com/)
 
 ## License
 [MIT](/LICENSE)

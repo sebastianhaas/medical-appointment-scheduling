@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE translationbundle [
+<!ELEMENT translationbundle (translation)*>
+<!ATTLIST translationbundle lang CDATA #REQUIRED>
+
+<!ELEMENT translation (#PCDATA|ph)*>
+<!ATTLIST translation id CDATA #REQUIRED>
+<!ATTLIST translation desc CDATA #IMPLIED>
+<!ATTLIST translation meaning CDATA #IMPLIED>
+<!ATTLIST translation xml:space (default|preserve) "default">
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<translationbundle lang="en">
+  <translation id="5768044489931719511">Insert test examinations</translation>
+  <translation id="4391594328797724569">Examination group</translation>
+  <translation id="6943486270557756671">CANCEL</translation>
+  <translation id="8998179362936748717">OK</translation>
+  <translation id="3946721176383090137">Attendance List</translation>
+  <translation id="5403684285319082289">Month</translation>
+  <translation id="5141352019990967744">Week</translation>
+  <translation id="6048892649018070225">Today</translation>
+  <translation id="6318077128670918892">Rooms</translation>
+  <translation id="1069523139277190436">Statistics</translation>
+  <translation id="7965032034356317860">Anonymized View</translation>
+  <translation id="415106153504775843">
+        Insert Test-Examinations
+      </translation>
+  <translation id="4599976567754661271">Insert Test-Rooms</translation>
+  <translation id="8498235134953191649">Insert Test-Patients</translation>
+  <translation id="7465726808901155236">
+        Create random appointments
+      </translation>
+  <translation id="4737876432994313016">
+        Create random attendances
+      </translation>
+  <translation id="7106166019823219953">Delete All Appointments</translation>
+  <translation id="5749605140101413221">Delete All Attendances</translation>
+  <translation id="4266813672870887396">Delete All Rooms</translation>
+  <translation id="4374910707309069741">Delete All Patients</translation>
+  <translation id="7547031751567416307">Delete All Examinations</translation>
+  <translation id="5684146663812778164" desc="Title for appointment accepted card">Appointment Accepted</translation>
+  <translation id="7375266372707374489">You have successfully accepted your appointment.</translation>
+  <translation id="4361568045684156139">Details:</translation>
+  <translation id="7926476270796216255">
+    <ph name="INTERPOLATION">
+      <ex>INTERPOLATION</ex>
+    </ph>
+  </translation>
+  <translation id="5203478643577307176" desc="Title for offer error">Appointment Expired</translation>
+  <translation id="603087466023371045" desc="Error message telling an offer has expired">
+        It looks like this offer for an appointment already expired.
+      </translation>
+  <translation id="599911257057896153" desc="Hint that it's always possible to get a new offer">
+        You can always get a new one by mailing to
+        <ph name="START_LINK"><ex>&lt;a&gt;</ex></ph>
+          auto-appointment@sebastianhaas.online
+        <ph name="CLOSE_LINK"><ex>&lt;/a&gt;</ex></ph>
+        or calling us directly at 269-852-0681.
+      </translation>
+  <translation id="9172233176401579786" desc="Header for section of scheduled patients">Scheduled</translation>
+  <translation id="2723161712102414497" desc="Blank message">No more patients scheduled for today.</translation>
+  <translation id="8020513601459374394" desc="Appointment scheduled info">
+          Scheduled for <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>, <ph name="INTERPOLATION_1"><ex>INTERPOLATION_1</ex></ph>
+        </translation>
+  <translation id="8114723251646157009" desc="Check in button">CHECK IN</translation>
+  <translation id="9001216289639080925" desc="Header for section of waiting patients">Waiting</translation>
+  <translation id="6537280632185371778" desc="Blank message">No patients waiting at the moment.</translation>
+  <translation id="804174070848809908" desc="Appointment waiting duration info">
+          Waiting <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>
+        </translation>
+  <translation id="2586374053704956276" desc="Under treatment button">UNDER TREATMENT</translation>
+  <translation id="6501911559208512100" desc="Header for section of patients under treatment">Under Treatment</translation>
+  <translation id="4115105339155150429" desc="Blank message">No patients under treatment.</translation>
+  <translation id="5445605358567038761" desc="Appointment under treatment duration info">
+          Under treatment <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>
+        </translation>
+  <translation id="6541895445597460994" desc="Check out button">CHECK OUT</translation>
+  <translation id="340430316261570792" desc="Header for section of finished patients">Finished</translation>
+  <translation id="1816561559039626120" desc="Blank message">No patients finished yet.</translation>
+  <translation id="9041435914545776111" desc="Appointment finished duration info">
+          Has been under treatment for <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph> minutes
+        </translation>
+  <translation id="1017586119194429609">Go to patient</translation>
+  <translation id="4849682202885816332">On <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph> at <ph name="INTERPOLATION_1"><ex>INTERPOLATION_1</ex></ph></translation>
+  <translation id="1571190680532015078">EDIT</translation>
+  <translation id="2744999950711585997">New Appointment</translation>
+  <translation id="4878804537443692147">Update Appointment</translation>
+  <translation id="2802536080288229427" desc="Section header for appointment form">Patient</translation>
+  <translation id="8773085206482460384" desc="Section header for appointment form">Examinations</translation>
+  <translation id="5028777105388019087" desc="Section header for appointment form">Details</translation>
+  <translation id="7410432243549869948">Duration</translation>
+  <translation id="6852688189905272961">e.g.: 30M, 1H, 1H40M etc.</translation>
+  <translation id="3973931101896534797">Date</translation>
+  <translation id="8497528947328199741">Time</translation>
+  <translation id="5701618810648052610">Title</translation>
+  <translation id="4902817035128594900">Description</translation>
+  <translation id="518297907399160251">Room</translation>
+  <translation id="3973903796975984331" desc="Section hedaer for appointment form">
+            Reminders
+          </translation>
+  <translation id="3814531498643798126">
+                Send email reminder <ph name="START_TAG_SPAN"><ex>&lt;span&gt;</ex></ph>(<ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>)<ph name="CLOSE_TAG_SPAN"><ex>&lt;/span&gt;</ex></ph>
+              </translation>
+  <translation id="924871221995487293">
+                Send text message reminder <ph name="START_TAG_SPAN"><ex>&lt;span&gt;</ex></ph>(<ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>)<ph name="CLOSE_TAG_SPAN"><ex>&lt;/span&gt;</ex></ph>
+              </translation>
+  <translation id="6671956963490165282">SAVE</translation>
+  <translation id="822450576504346146">SUGGESTED TIME SLOTS</translation>
+  <translation id="4980869481017747387" desc="Date overview in suggested appoitment">In <ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph></translation>
+  <translation id="7389781389820294819"><ph name="INTERPOLATION"><ex>INTERPOLATION</ex></ph>, <ph name="INTERPOLATION_1"><ex>INTERPOLATION_1</ex></ph> Minutes</translation>
+  <translation id="1465965347242159513">APPLY</translation>
+  <translation id="2578809575442554488">Do you really want to cancel this appointment?</translation>
+  <translation id="2289869855144545114">YES</translation>
+  <translation id="6466969409681865142">NO</translation>
+  <translation id="1387842587014555353">Patient Data</translation>
+  <translation id="5606670937609956145">Loading patient data...</translation>
+  <translation id="3169678473994582107">UPCOMING APPOINTMENTS</translation>
+  <translation id="4759841243260930675">CANCEL APPOINTMENT</translation>
+  <translation id="927695060918605272">Delays by Day</translation>
+  <translation id="6040289162937903979">Sorry, no attendances yet.</translation>
+  <translation id="3796846256452160927">Check in walk-in patient</translation>
+  <translation id="8493572909014401245">SAVE &amp; CHECK IN</translation>
+</translationbundle>

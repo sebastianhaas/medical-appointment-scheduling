@@ -25,8 +25,6 @@ import { Room }                    from '../api/model/room';
 import { RoomService }             from '../api/api/room.service';
 import { NotificationService }     from '../api/api/notification.service';
 import { NotificationBuilder }     from './notificationBuilder';
-import { Translation,
-  getI18nStrings }                 from './appointment.translations';
 
 @Component({
   templateUrl: './detail.component.html',
@@ -36,7 +34,6 @@ import { Translation,
 export class AppointmentDetailComponent implements OnInit {
 
   public editing: boolean = false;
-  public trans: Translation;
   public rooms: Room[] = undefined;
 
   // Patient autocomplete field
@@ -101,7 +98,6 @@ export class AppointmentDetailComponent implements OnInit {
 
     // Set up localization
     this.isTwelveHours = this.isCurrentLocaleUsingTwelveHours();
-    this.trans = getI18nStrings();
 
     // Set up rooms control (retrieve all rooms)
     this.getAllRooms();
@@ -140,7 +136,10 @@ export class AppointmentDetailComponent implements OnInit {
       .distinctUntilChanged()
       .map((val) => this.sanitizeDuration(val))
       .subscribe(
-        (x) => this.model.duration = x,
+        (x) => {
+          this.model.duration = x;
+          this.onFormChange();
+        },
         (err) => console.log(err)
       );
   }
@@ -211,7 +210,7 @@ export class AppointmentDetailComponent implements OnInit {
     // ...or update
     } else {
       this.appointmentService
-      .appointmentPrototypeUpdateAttributes(this.model.id.toString(), newAppointment)
+      .appointmentPrototypePatchAttributes(this.model.id.toString(), newAppointment)
       .subscribe(
         (x) => {
           // Before linking examinations, we actually have to get rid of existing ones
@@ -267,8 +266,8 @@ export class AppointmentDetailComponent implements OnInit {
 
   private linkExaminationWithAppointment(appointment: Appointment, examination: Examination) {
     this.appointmentService.appointmentPrototypeLinkExaminations(
-      examination.id.toString(),
-      appointment.id.toString())
+      appointment.id.toString(),
+      examination.id.toString())
     .subscribe(
       (x) => console.log(
         `Linked examination ${x.examinationId} with appointment ${x.appointmentId}`
@@ -304,6 +303,12 @@ export class AppointmentDetailComponent implements OnInit {
     );
   }
 
+  /**
+   * Queries the appointment service for a possible time slot for the given
+   * duration and room, from the given start date onwards.
+   *
+   * @param examinationId Will be ignored.
+   */
   private findTime(
     duration?: string,
     examinationId?: number,
@@ -318,10 +323,33 @@ export class AppointmentDetailComponent implements OnInit {
       roomId,
       startDate ? startDate.toDate() : undefined)
     .subscribe(
-      (x) => this.proposedTimeSlots.push(x),
+      (x) => {
+        this.proposedTimeSlots.push(x);
+        this.proposedTimeSlots.sort(this.compareSuggestedTimeSlots);
+      },
       (e) => console.log(e),
       () => console.log('Completed querying for the next free time slot.')
     );
+  }
+
+  /**
+   * Helper method used to sort the suggested time slots array after inserting
+   * new elements.
+   */
+  private compareSuggestedTimeSlots(slotA, slotB): number {
+    if (!slotA.scheduledTasks.NewAppointment.schedule[0].start ||
+        !slotB.scheduledTasks.NewAppointment.schedule[0].start) {
+          return 1;
+    }
+    let a = moment(slotA.scheduledTasks.NewAppointment.schedule[0].start);
+    let b = moment(slotB.scheduledTasks.NewAppointment.schedule[0].start);
+    if (a.isAfter(b)) {
+      return 1;
+    }
+    if (a.isBefore(b)) {
+      return -1;
+    }
+    return 0;
   }
 
   /**
@@ -329,39 +357,49 @@ export class AppointmentDetailComponent implements OnInit {
    * time slot suggestions.
    */
   private onFormChange() {
-     // Every time the form changes, use latest information to find a suitable date
+    // When editing an existing appointment, don't display suggestions
+    if (this.model.id) {
+      return;
+    }
+
+    // Every time the form changes, use latest information to find a suitable date
     if (this.model.duration) {
 
       // Check if duration is valid
       let duration = moment.duration('PT' + this.model.duration);
       if (moment.isDuration(duration) && duration.asMinutes() > 1) {
         this.proposedTimeSlots = [];
+
+        // Query for time slots from now on
         this.findTime(
           this.model.duration,
           this.model.examinations && this.model.examinations.length > 0 ?
             this.model.examinations[0].id : undefined,
-          this.model.room.id,
+          this.model.room ? this.model.room.id : undefined,
           moment()
         );
+        // The next day on
         this.findTime(
           this.model.duration,
           this.model.examinations && this.model.examinations.length > 0 ?
             this.model.examinations[0].id : undefined,
-          this.model.room.id,
+          this.model.room ? this.model.room.id : undefined,
           moment().add(1, 'day')
         );
+        // From next week on
         this.findTime(
           this.model.duration,
           this.model.examinations && this.model.examinations.length > 0 ?
             this.model.examinations[0].id : undefined,
-          this.model.room.id,
+          this.model.room ? this.model.room.id : undefined,
           moment().add(1, 'week')
         );
+        // From one month on
         this.findTime(
           this.model.duration,
           this.model.examinations && this.model.examinations.length > 0 ?
             this.model.examinations[0].id : undefined,
-          this.model.room.id,
+          this.model.room ? this.model.room.id : undefined,
           moment().add(1, 'month')
         );
       }

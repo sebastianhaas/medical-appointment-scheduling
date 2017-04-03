@@ -19,8 +19,6 @@ import { Patient }                from '../api/model/patient';
 import { PatientService }         from '../api/api/patient.service';
 import { Room }                   from '../api/model/room';
 import { RoomService }            from '../api/api/room.service';
-import { Translation,
-  getI18nStrings }                from './appointment.translations';
 
 @Component({
   templateUrl: './walk-in-check-in.component.html',
@@ -31,9 +29,6 @@ export class WalkInCheckInComponent implements OnInit {
 
   // Duration input
   public durationControl = new FormControl();
-
-  // Translation
-  public trans: Translation;
 
   // Examinations autocomplete/tag field
   public examinations: Examination[] = [];
@@ -85,8 +80,6 @@ export class WalkInCheckInComponent implements OnInit {
       );
     this._state.actions.next();
     this._state.primaryAction.next();
-
-    this.trans = getI18nStrings();
 
     this.getAllRooms();
 
@@ -188,8 +181,8 @@ export class WalkInCheckInComponent implements OnInit {
 
   private linkExaminationWithAppointment(appointment: Appointment, examination: Examination) {
     this.appointmentService.appointmentPrototypeLinkExaminations(
-      examination.id.toString(),
-      appointment.id.toString())
+      appointment.id.toString(),
+      examination.id.toString())
     .subscribe(
       (x) => console.log(
         `Linked examination ${x.examinationId} with appointment ${x.appointmentId}`

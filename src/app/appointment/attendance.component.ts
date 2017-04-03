@@ -195,7 +195,7 @@ export class AppointmentAttendanceComponent implements OnInit {
               }
             },
             (e) => {
-              if (e._body.error.statusCode === 404 && e._body.error.code === 'MODEL_NOT_FOUND') {
+              if (e.status === 404 && e.statusText === 'Not Found') {
                 this.appointmentsScheduled.push(appointment);
                 console.log('No attendance yet for this appointment.');
               } else {

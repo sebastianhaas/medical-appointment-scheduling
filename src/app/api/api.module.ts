@@ -1,6 +1,7 @@
-import { NgModule }     from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpModule }   from '@angular/http';
+import { HttpModule } from '@angular/http';
+import { Configuration } from './configuration';
 
 import { AppointmentService } from './api/appointment.service';
 import { AttendanceService } from './api/attendance.service';
@@ -17,4 +18,11 @@ import { RoomService } from './api/room.service';
   exports:      [],
   providers:    [ AppointmentService, AttendanceService, AuditLogEntryService, ExaminationService, MailService, NotificationService, PatientService, RoomService ]
 })
-export class ApiModule {}
+export class ApiModule {
+    public static forConfig(configuration: Configuration): ModuleWithProviders {
+        return {
+            ngModule: ApiModule,
+            providers: [ {provide: Configuration, useValue: configuration}]
+        }
+    }
+}
