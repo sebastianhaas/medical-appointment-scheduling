@@ -102,7 +102,7 @@
     "normalize.css": "^7.0.0",
     "primeng": "2.0.3",
     "primeui": "4.1.15",
-    "rxjs": "5.3.1",
+    "rxjs": "5.3.2",
     "socket.io-client": "2.0.0",
     "zone.js": "0.7.8"
   },
