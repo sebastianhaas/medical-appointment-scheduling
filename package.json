@@ -103,7 +103,7 @@
     "primeng": "2.0.3",
     "primeui": "4.1.15",
     "rxjs": "5.3.1",
-    "socket.io-client": "2.0.1",
+    "socket.io-client": "2.0.2",
     "zone.js": "0.7.8"
   },
   "devDependencies": {
@@ -114,11 +114,11 @@
     "@types/hammerjs": "2.0.34",
     "@types/handlebars": "^4.0.31",
     "@types/jasmine": "2.5.51",
-    "@types/jquery": "2.0.45",
-    "@types/node": "7.0.21",
+    "@types/jquery": "2.0.46",
+    "@types/node": "7.0.29",
     "@types/socket.io-client": "1.4.29",
     "@types/source-map": "0.5.0",
-    "@types/uglify-js": "2.6.28",
+    "@types/uglify-js": "2.6.29",
     "@types/webpack": "2.2.15",
     "add-asset-html-webpack-plugin": "^2.0.1",
     "angular2-template-loader": "0.6.0",
