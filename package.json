@@ -108,7 +108,7 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "2.4.10",
-    "@angular/platform-server": "2.4.10",
+    "@angular/platform-server": "4.0.1",
     "@types/async": "2.0.40",
     "@types/core-js": "0.9.42",
     "@types/hammerjs": "2.0.34",
