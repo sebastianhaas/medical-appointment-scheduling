@@ -115,7 +115,7 @@
     "@types/handlebars": "^4.0.31",
     "@types/jasmine": "2.5.53",
     "@types/jquery": "3.2.13",
-    "@types/node": "8.0.26",
+    "@types/node": "8.0.28",
     "@types/socket.io-client": "1.4.30",
     "@types/source-map": "0.5.1",
     "@types/uglify-js": "2.6.29",
