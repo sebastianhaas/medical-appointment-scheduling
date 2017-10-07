@@ -29,8 +29,8 @@ export class AppointmentTodayComponent implements OnInit {
 
   public ngOnInit() {
     // Mouseflow integration
-    if ((<any> window)._mfq) {
-      (<any> window)._mfq.push(['newPageView', '/appointment/today']);
+    if ((window as any)._mfq) {
+      (window as any)._mfq.push(['newPageView', '/appointment/today']);
     }
     // Set up page
     this._state.isSubPage.next(false);
@@ -58,8 +58,8 @@ export class AppointmentTodayComponent implements OnInit {
 
   private getTodaysAppointments(): void {
     this.slimLoadingBarService.start();
-    let start = moment.utc().startOf('day');
-    let end = moment.utc().endOf('day');
+    const start = moment.utc().startOf('day');
+    const end = moment.utc().endOf('day');
     this.viewAppointmentService
     .appointmentFind(`{"where": {"start":  {"between": ["${start.format()}", "${end.format()}"]}}}`)
     .subscribe(

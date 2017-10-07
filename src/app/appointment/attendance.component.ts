@@ -37,8 +37,8 @@ export class AppointmentAttendanceComponent implements OnInit {
 
   public ngOnInit(): void {
     // Mouseflow integration
-    if ((<any> window)._mfq) {
-      (<any> window)._mfq.push(['newPageView', '/appointment/attendance']);
+    if ((window as any)._mfq) {
+      (window as any)._mfq.push(['newPageView', '/appointment/attendance']);
     }
 
     // Set up page
@@ -64,7 +64,7 @@ export class AppointmentAttendanceComponent implements OnInit {
     this.slimLoadingBarService.start();
 
     // Prepare data
-    let data: Attendance = {
+    const data: Attendance = {
       checkedIn: new Date()
     };
 
@@ -80,7 +80,7 @@ export class AppointmentAttendanceComponent implements OnInit {
       () => {
         this.slimLoadingBarService.complete();
         console.log('Written attendance successfully.');
-        let index = this.appointmentsScheduled.indexOf(appointment);
+        const index = this.appointmentsScheduled.indexOf(appointment);
         if (index > -1) {
           this.appointmentsScheduled.splice(index, 1);
         }
@@ -98,7 +98,7 @@ export class AppointmentAttendanceComponent implements OnInit {
     this.slimLoadingBarService.start();
 
     // Prepare data
-    let data: Attendance = {
+    const data: Attendance = {
       underTreatment: new Date()
     };
 
@@ -114,7 +114,7 @@ export class AppointmentAttendanceComponent implements OnInit {
       () => {
         this.slimLoadingBarService.complete();
         console.log('Updated attendance successfully.');
-        let index = this.appointmentsCheckedIn.indexOf(appointment);
+        const index = this.appointmentsCheckedIn.indexOf(appointment);
         if (index > -1) {
           this.appointmentsCheckedIn.splice(index, 1);
         }
@@ -132,7 +132,7 @@ export class AppointmentAttendanceComponent implements OnInit {
     this.slimLoadingBarService.start();
 
     // Prepare data
-    let data: Attendance = {
+    const data: Attendance = {
       finished: new Date()
     };
 
@@ -148,7 +148,7 @@ export class AppointmentAttendanceComponent implements OnInit {
       () => {
         console.log('Updated attendance successfully.');
         this.slimLoadingBarService.complete();
-        let index = this.appointmentsUnderTreatment.indexOf(appointment);
+        const index = this.appointmentsUnderTreatment.indexOf(appointment);
         if (index > -1) {
           this.appointmentsUnderTreatment.splice(index, 1);
         }
@@ -166,8 +166,8 @@ export class AppointmentAttendanceComponent implements OnInit {
 
   private getTodaysAppointments(): void {
     this.slimLoadingBarService.start();
-    let start = moment.utc().startOf('day');
-    let end = moment.utc().endOf('day');
+    const start = moment.utc().startOf('day');
+    const end = moment.utc().endOf('day');
     this.appointmentService
     .appointmentFind(
       `{"where": {"start":  {"between": ["${start.format()}", "${end.format()}"]}}}`
@@ -175,7 +175,7 @@ export class AppointmentAttendanceComponent implements OnInit {
     .subscribe(
       (x) => {
         this.allAppointments = x;
-        for (let appointment of this.allAppointments) {
+        for (const appointment of this.allAppointments) {
 
           // Check if an attendance exists for this appointment
           this.appointmentService

@@ -35,8 +35,8 @@ export class AppointmentScheduleComponent implements OnInit {
 
   public ngOnInit() {
     // Mouseflow integration
-    if ((<any> window)._mfq) {
-      (<any> window)._mfq.push(['newPageView', '/appointment/']);
+    if ((window as any)._mfq) {
+      (window as any)._mfq.push(['newPageView', '/appointment/']);
     }
 
     // Set up page

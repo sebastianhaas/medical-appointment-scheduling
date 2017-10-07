@@ -116,10 +116,10 @@ export class AppComponent implements OnInit {
           this.patientService.patientFindOne(JSON.stringify(filter))
           .subscribe(
             (patient) => {
-              let message = localStorage.getItem('locale').startsWith('de') ?
+              const message = localStorage.getItem('locale').startsWith('de') ?
                 `Eingehender Anruf von ${patient.givenName} ${patient.surname}` :
                 `Incoming call from ${patient.givenName} ${patient.surname}`;
-              let action = localStorage.getItem('locale')
+              const action = localStorage.getItem('locale')
                 .startsWith('de') ? 'Zum Patienten' : 'Open';
 
               this.snackBarRef = this.snackBar.open(message, action);

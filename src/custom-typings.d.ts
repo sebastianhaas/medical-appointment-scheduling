@@ -65,19 +65,17 @@ interface GlobalEnvironment {
   System: SystemJS;
 }
 
-interface Es6PromiseLoader {
-  (id: string): (exportName?: string) => Promise<any>;
-}
+type Es6PromiseLoader = (id: string) => (exportName?: string) => Promise<any>;
 
 type FactoryEs6PromiseLoader = () => Es6PromiseLoader;
 type FactoryPromise = () => Promise<any>;
 
-type AsyncRoutes = {
+interface AsyncRoutes {
   [component: string]: Es6PromiseLoader |
                                Function |
                 FactoryEs6PromiseLoader |
                          FactoryPromise
-};
+}
 
 type IdleCallbacks = Es6PromiseLoader |
                              Function |

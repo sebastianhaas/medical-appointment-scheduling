@@ -40,8 +40,8 @@ export class PatientComponent implements OnInit {
 
   public ngOnInit() {
     // Mouseflow integration
-    if ((<any> window)._mfq) {
-      (<any> window)._mfq.push(['newPageView', '/appointment/patient']);
+    if ((window as any)._mfq) {
+      (window as any)._mfq.push(['newPageView', '/appointment/patient']);
     }
 
     // Set up page
@@ -51,7 +51,7 @@ export class PatientComponent implements OnInit {
     this._state.primaryAction.next();
 
     // Retrieve patient to be displayed from route and retrieve data from service
-    let param: string = this.route.snapshot.params['id'];
+    const param: string = this.route.snapshot.params['id'];
 
     this.slimLoadingBarService.start();
     this.patientService.patientFindById(param)
@@ -74,7 +74,7 @@ export class PatientComponent implements OnInit {
    * Opens a dialog that reassures that the appointment should be deleted.
    */
   public openCancelAppointmentDialog(appointment: Appointment) {
-    let config = new MdDialogConfig();
+    const config = new MdDialogConfig();
     config.viewContainerRef = this.viewContainerRef;
 
     this.dialogRef = this.dialog.open(PatientCancelAppointmentDialogComponent, config);
@@ -90,9 +90,9 @@ export class PatientComponent implements OnInit {
    * Used to format the duration of the appointment on in the template.
    */
   public formatDuration(appointment: Appointment): string {
-    let start = moment(appointment.start);
-    let end = moment(appointment.end);
-    let duration = moment.duration(end.diff(start));
+    const start = moment(appointment.start);
+    const end = moment(appointment.end);
+    const duration = moment.duration(end.diff(start));
     return this.localeHumanizer(duration.asMilliseconds());
   }
 
@@ -109,7 +109,7 @@ export class PatientComponent implements OnInit {
   }
 
   private findAppointmentsForPatient(patientId: number) {
-    let filter = {
+    const filter = {
       where: {
         patientId
       }

@@ -17,7 +17,7 @@ export class NotificationBuilder {
       return undefined;
     }
     // Time to deliver this notification
-    let schedule = later.parse.recur()
+    const schedule = later.parse.recur()
       .on(0).second()
       .on(0).minute()
       .on(13).hour()
@@ -27,7 +27,7 @@ export class NotificationBuilder {
       .on(later.year.val(moment(appointment.start).utc().toDate())).year();
 
     // Transports to deliver this notification
-    let transports: NotificationTransport[] = [];
+    const transports: NotificationTransport[] = [];
     if (emailAddress) {
       transports.push({
         address: emailAddress,
@@ -53,8 +53,8 @@ export class NotificationBuilder {
   }
 
   private static contentHtml(appointment: Appointment): string {
-    let template = Handlebars.compile(require('./notificationTemplate.html'));
-    let data = { time: moment(appointment.start).format('LT') };
+    const template = Handlebars.compile(require('./notificationTemplate.html'));
+    const data = { time: moment(appointment.start).format('LT') };
     return template(data);
   }
 

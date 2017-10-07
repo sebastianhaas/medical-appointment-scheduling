@@ -78,11 +78,11 @@ export class AppointmentDetailComponent implements OnInit {
     private notificationService: NotificationService) {}
 
   public ngOnInit(): void {
-    let param: string = this.route.snapshot.params['id'];
+    const param: string = this.route.snapshot.params['id'];
 
     // Mouseflow integration
-    if ((<any> window)._mfq) {
-      (<any> window)._mfq.push(['newPageView', '/appointment/' + param]);
+    if ((window as any)._mfq) {
+      (window as any)._mfq.push(['newPageView', '/appointment/' + param]);
     }
 
     // This is a sub-page
@@ -146,7 +146,7 @@ export class AppointmentDetailComponent implements OnInit {
 
   public onSubmit(): void {
     this.slimLoadingBarService.start();
-    let newAppointment: Appointment  = {
+    const newAppointment: Appointment  = {
       title: this.model.title,
       description: this.model.description,
       modified: new Date(),
@@ -156,13 +156,13 @@ export class AppointmentDetailComponent implements OnInit {
       patientId: this.model.patient.id,
       roomId: this.model.room.id
     };
-    let examinations: Examination[] = this.model.examinations;
-    let startDate = moment(this.model.date, 'l');
-    let startTime = moment(this.model.time, 'LT');
-    let start = startDate.clone();
+    const examinations: Examination[] = this.model.examinations;
+    const startDate = moment(this.model.date, 'l');
+    const startTime = moment(this.model.time, 'LT');
+    const start = startDate.clone();
     start.hour(startTime.hour());
     start.minute(startTime.minute());
-    let end: moment.Moment = start.clone();
+    const end: moment.Moment = start.clone();
     end.add(moment.duration('PT' + this.model.duration));
     newAppointment.start = start.toDate();
     newAppointment.end = end.toDate();
@@ -176,7 +176,7 @@ export class AppointmentDetailComponent implements OnInit {
 
           // Link examinations
           if (examinations && examinations.length > 0) {
-            for (let examination of examinations) {
+            for (const examination of examinations) {
               this.linkExaminationWithAppointment(x, examination);
             }
           }
@@ -219,7 +219,7 @@ export class AppointmentDetailComponent implements OnInit {
             null,
             null,
             () => {
-              for (let examination of examinations) {
+              for (const examination of examinations) {
                 this.linkExaminationWithAppointment(x, examination);
               }
             }
@@ -341,8 +341,8 @@ export class AppointmentDetailComponent implements OnInit {
         !slotB.scheduledTasks.NewAppointment.schedule[0].start) {
           return 1;
     }
-    let a = moment(slotA.scheduledTasks.NewAppointment.schedule[0].start);
-    let b = moment(slotB.scheduledTasks.NewAppointment.schedule[0].start);
+    const a = moment(slotA.scheduledTasks.NewAppointment.schedule[0].start);
+    const b = moment(slotB.scheduledTasks.NewAppointment.schedule[0].start);
     if (a.isAfter(b)) {
       return 1;
     }
@@ -366,7 +366,7 @@ export class AppointmentDetailComponent implements OnInit {
     if (this.model.duration) {
 
       // Check if duration is valid
-      let duration = moment.duration('PT' + this.model.duration);
+      const duration = moment.duration('PT' + this.model.duration);
       if (moment.isDuration(duration) && duration.asMinutes() > 1) {
         this.proposedTimeSlots = [];
 
@@ -410,9 +410,9 @@ export class AppointmentDetailComponent implements OnInit {
     this.appointmentService.appointmentFindById(id.toString())
       .subscribe(
         (x) => {
-          let startDate = moment(x.start);
-          let endDate = moment(x.end);
-          let duration = moment.duration(endDate.diff(startDate));
+          const startDate = moment(x.start);
+          const endDate = moment(x.end);
+          const duration = moment.duration(endDate.diff(startDate));
           this.model.id = x.id;
           this.model.date = startDate.format('l');
           this.model.time = startDate.format('LT');
@@ -463,7 +463,7 @@ export class AppointmentDetailComponent implements OnInit {
   private applySuggestion(timeSlot: any) {
     if (timeSlot) {
       console.log(timeSlot);
-      let startDate = moment(timeSlot.start);
+      const startDate = moment(timeSlot.start);
       this.model.duration =
         `${moment.duration(timeSlot.duration, 'minutes').toJSON().substring(2)}`;
       this.model.date = startDate.format('l');

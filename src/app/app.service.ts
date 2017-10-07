@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subject }    from 'rxjs/Rx';
 
-export type InternalStateType = {
+export interface InternalStateType {
   [key: string]: any
-};
+}
 
 @Injectable()
 export class AppState {
