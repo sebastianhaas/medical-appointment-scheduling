@@ -15,6 +15,7 @@
     "directive-class-suffix": true,
     // "directive-selector": [true, "attribute", "med", "camelCase"],
     "import-destructuring-spacing": true,
+    "import-spacing": false,
     "invoke-injectable": true,
     "no-access-missing-member": true,
     "no-attribute-parameter-decorator": true,

@@ -4,7 +4,7 @@ import * as moment    from 'moment';
 
 declare var navigator: any; // navigator.languages not available yet
 
-export function getTranslationProviders(): Promise<Object[]> {
+export function getTranslationProviders(): Promise<object[]> {
 
   // Make sure a locale exists
   ensureLocale();
@@ -13,7 +13,7 @@ export function getTranslationProviders(): Promise<Object[]> {
   const locale = localStorage.getItem('locale');
 
   // return no providers if fail to get translation file for locale
-  const noProviders: Object[] = [];
+  const noProviders: object[] = [];
 
   // No locale or U.S. English: no translation providers
   if (!locale || locale === 'en-US') {

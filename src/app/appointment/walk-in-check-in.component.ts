@@ -266,7 +266,7 @@ export class WalkInCheckInComponent implements OnInit {
     return val;
   }
 
-  private humanizeDuration(durationString: String): String {
+  private humanizeDuration(durationString: string): string {
     return moment.duration('PT' + durationString).humanize();
   }
 }

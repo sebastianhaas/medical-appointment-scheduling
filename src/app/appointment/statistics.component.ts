@@ -52,7 +52,7 @@ export class StatisticsComponent implements OnInit {
 
         const data: number[][] = [];
 
-        async.each(attendances, (attendance: Attendance, callback: Function) => {
+        async.each(attendances, (attendance: Attendance, callback: (err) => void) => {
           this.appointmentService.appointmentFindById(attendance.appointmentId.toString())
           .subscribe(
             (appointment) => {
@@ -69,7 +69,7 @@ export class StatisticsComponent implements OnInit {
               data[dayOfWeek].push(offset);
             },
             (err) => callback(err),
-            () => callback()
+            () => callback(null)
           );
         }, (err) => {
           if ( err ) {

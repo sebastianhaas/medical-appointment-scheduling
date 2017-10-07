@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject }    from 'rxjs/Rx';
 
 export interface InternalStateType {
-  [key: string]: any
+  [key: string]: any;
 }
 
 @Injectable()
@@ -59,6 +59,6 @@ export class AppState {
 
 export interface Action {
   icon: string;
-  clickHandler?: Function;
+  clickHandler?: () => void;
   routerLink?: string;
 }
