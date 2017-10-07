@@ -160,7 +160,7 @@ export class AppointmentAttendanceComponent implements OnInit {
   /**
    * Requests a call to the supplied phone number using a CTI service.
    */
-  public requestCall(phoneNumber: String) {
+  public requestCall(phoneNumber: string) {
     this.cantyCTIService.requestCall(phoneNumber);
   }
 

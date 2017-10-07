@@ -25,7 +25,7 @@ export class WeekComponent implements OnInit {
   public viewDate: moment.Moment = moment(); // Now
   public minTime: moment.Duration = moment.duration('07:00:00');
   public maxTime: moment.Duration = moment.duration('20:00:00');
-  public viewMode: String = 'basicWeek';
+  public viewMode: string = 'basicWeek';
   public refreshCalendar: boolean = false; // Tiny hack to get fullcalendar to refresh
 
   @ViewChild(Schedule) private schedule: Schedule;
@@ -99,7 +99,7 @@ export class WeekComponent implements OnInit {
     this.schedule.gotoDate(this.viewDate);
   }
 
-  private handleViewModeChange(viewMode: String) {
+  private handleViewModeChange(viewMode: string) {
     this.refreshCalendar = true;
     this.viewMode = viewMode;
     setTimeout(() => this.refreshCalendar = false, 0);
@@ -123,7 +123,7 @@ export class WeekComponent implements OnInit {
     return startString + ' - ' + endString + ', ' + weekString;
   }
 
-  private getActions(nextViewMode: String): Action[] {
+  private getActions(nextViewMode: string): Action[] {
     return [
       {
         icon: nextViewMode === 'basicWeek' ? 'list' : 'schedule',

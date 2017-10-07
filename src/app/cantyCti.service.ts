@@ -22,13 +22,13 @@ export enum IncomingCallState {
 }
 
 declare interface IncomingCall {
-  id: String;
-  phoneNumber: String;
+  id: string;
+  phoneNumber: string;
   callState: IncomingCallState;
 }
 
 declare interface CallRequest {
-  phoneNumber: String;
+  phoneNumber: string;
 }
 
 @Injectable()
@@ -57,7 +57,7 @@ export class CantyCTIService {
     });
   }
 
-  public requestCall(phoneNumber: String) {
+  public requestCall(phoneNumber: string) {
     this.socket.emit(EVENT_KEY_CALL_REQUEST, { phoneNumber });
     console.log(`Requested to call ${phoneNumber}.`);
   }
