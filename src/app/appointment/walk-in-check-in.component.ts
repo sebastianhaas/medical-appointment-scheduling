@@ -50,10 +50,11 @@ export class WalkInCheckInComponent implements OnInit {
     examinations: undefined
   };
 
+  public rooms: Room[] = undefined;
+  public filteredPatients: Observable<Patient[]>;
+
   private filteredExaminations: Examination[] = undefined;
-  private filteredPatients: Observable<Patient[]>;
   private patients: Patient[] = [];
-  private rooms: Room[] = undefined;
 
   constructor(
     private _state: AppState,

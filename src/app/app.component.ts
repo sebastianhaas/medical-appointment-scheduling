@@ -42,8 +42,7 @@ export class AppComponent implements OnInit {
   public primaryAction: Action;
   public isSubPage = false;
   public title = 'Medical Appointment Scheduling';
-
-  private actions: Action[];
+  public actions: Action[];
 
   private snackBarRef: MdSnackBarRef<SimpleSnackBar>;
 
