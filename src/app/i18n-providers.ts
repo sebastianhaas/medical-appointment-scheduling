@@ -21,7 +21,7 @@ export function getTranslationProviders(): Promise<Object[]> {
   }
 
   if (locale.startsWith('de')) {
-    let translationFileContents = require('raw-loader!../../locale/messages.de.xtb');
+    const translationFileContents = require('raw-loader!../../locale/messages.de.xtb');
     return Promise.resolve([
         { provide: TRANSLATIONS, useValue: translationFileContents },
         { provide: TRANSLATIONS_FORMAT, useValue: 'xtb' },
@@ -46,7 +46,7 @@ function getTranslationsWithSystemJs(file: string) {
  */
 function ensureLocale() {
   if (!localStorage.getItem('locale')) {
-    let locale = navigator.languages
+    const locale = navigator.languages
       ? navigator.languages[0]
       : (navigator.language || navigator.userLanguage);
     localStorage.setItem('locale', locale);

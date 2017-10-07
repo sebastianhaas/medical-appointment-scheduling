@@ -68,8 +68,8 @@ export class WalkInCheckInComponent implements OnInit {
 
   public ngOnInit(): void {
     // Mouseflow integration
-    if ((<any> window)._mfq) {
-      (<any> window)._mfq.push(['newPageView', '/appointment/walk-in-check-in']);
+    if ((window as any)._mfq) {
+      (window as any)._mfq.push(['newPageView', '/appointment/walk-in-check-in']);
     }
 
     // This is a sub-page
@@ -114,7 +114,7 @@ export class WalkInCheckInComponent implements OnInit {
 
   public onSubmit(): void {
     this.slimLoadingBarService.start();
-    let newAppointment: Appointment  = {
+    const newAppointment: Appointment  = {
       title: this.model.title,
       description: this.model.description,
       modified: new Date(),
@@ -124,13 +124,13 @@ export class WalkInCheckInComponent implements OnInit {
       patientId: this.model.patient.id,
       roomId: this.model.room.id
     };
-    let examinations: Examination[] = this.model.examinations;
-    let startDate = moment(this.model.date, 'l');
-    let startTime = moment(this.model.time, 'LT');
-    let start = startDate.clone();
+    const examinations: Examination[] = this.model.examinations;
+    const startDate = moment(this.model.date, 'l');
+    const startTime = moment(this.model.time, 'LT');
+    const start = startDate.clone();
     start.hour(startTime.hour());
     start.minute(startTime.minute());
-    let end: moment.Moment = start.clone();
+    const end: moment.Moment = start.clone();
     end.add(moment.duration('PT' + this.model.duration));
     newAppointment.start = start.toDate();
     newAppointment.end = end.toDate();
@@ -142,7 +142,7 @@ export class WalkInCheckInComponent implements OnInit {
       (x) => {
         // Link examinations
         if (examinations && examinations.length > 0) {
-          for (let examination of examinations) {
+          for (const examination of examinations) {
             this.linkExaminationWithAppointment(x, examination);
           }
         }
@@ -234,7 +234,7 @@ export class WalkInCheckInComponent implements OnInit {
 
   private checkIn(appointment: any): Observable<Attendance> { // TODO Fix any ViewAppointment
     // Prepare data
-    let data: Attendance = {
+    const data: Attendance = {
       checkedIn: new Date()
     };
 

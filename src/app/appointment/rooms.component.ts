@@ -40,8 +40,8 @@ export class AppointmentRoomsComponent implements OnInit {
 
   public ngOnInit() {
     // Mouseflow integration
-    if ((<any> window)._mfq) {
-      (<any> window)._mfq.push(['newPageView', '/appointment/rooms']);
+    if ((window as any)._mfq) {
+      (window as any)._mfq.push(['newPageView', '/appointment/rooms']);
     }
 
     // Set up page
@@ -92,7 +92,7 @@ export class AppointmentRoomsComponent implements OnInit {
 
   private getAllRooms(): void {
     this.slimLoadingBarService.start();
-    let appointmentObservables: Array<Observable<Appointment[]>> = [];
+    const appointmentObservables: Array<Observable<Appointment[]>> = [];
     this.roomService
     .roomFind()
     .subscribe(

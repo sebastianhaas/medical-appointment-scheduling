@@ -38,8 +38,8 @@ export class AnonComponent implements OnInit {
 
   public ngOnInit() {
     // Mouseflow integration
-    if ((<any> window)._mfq) {
-      (<any> window)._mfq.push(['newPageView', '/appointment/anon']);
+    if ((window as any)._mfq) {
+      (window as any)._mfq.push(['newPageView', '/appointment/anon']);
     }
 
     // Set up page
@@ -97,16 +97,16 @@ export class AnonComponent implements OnInit {
   }
 
   private getTitleFromViewDate() {
-    let startString = this.viewDate.format('MMMM Do');
+    const startString = this.viewDate.format('MMMM Do');
     let endString;
-    let endOfWeekMoment = this.viewDate.clone().add(6, 'days');
+    const endOfWeekMoment = this.viewDate.clone().add(6, 'days');
     // Check if this week spreads over two months
     if (this.viewDate.month() === endOfWeekMoment.month()) {
       endString = endOfWeekMoment.format('Do YYYY');
     } else {
       endString = endOfWeekMoment.format('MMMM Do YYYY');
     }
-    let weekString = this.viewDate.format(
+    const weekString = this.viewDate.format(
       localStorage.getItem('locale').startsWith('de') ? '[Woche] w' : '[Week] w');
     return startString + ' - ' + endString + ', ' + weekString;
   }

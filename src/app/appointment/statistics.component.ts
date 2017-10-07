@@ -31,8 +31,8 @@ export class StatisticsComponent implements OnInit {
 
   public ngOnInit() {
     // Mouseflow integration
-    if ((<any> window)._mfq) {
-      (<any> window)._mfq.push(['newPageView', '/appointment/statistics']);
+    if ((window as any)._mfq) {
+      (window as any)._mfq.push(['newPageView', '/appointment/statistics']);
     }
     this._state.isSubPage.next(false);
     this._state.title.next(
@@ -50,7 +50,7 @@ export class StatisticsComponent implements OnInit {
           return;
         }
 
-        let data: number[][] = [];
+        const data: number[][] = [];
 
         async.each(attendances, (attendance: Attendance, callback: Function) => {
           this.appointmentService.appointmentFindById(attendance.appointmentId.toString())
@@ -62,7 +62,7 @@ export class StatisticsComponent implements OnInit {
                 .asMinutes();
               offset = Math.round( offset * 10 ) / 10; // Round for better readability in box plot
 
-              let dayOfWeek = moment(appointment.start).isoWeekday();
+              const dayOfWeek = moment(appointment.start).isoWeekday();
               if (!data[dayOfWeek]) {
                 data[dayOfWeek] = [];
               }
@@ -84,7 +84,7 @@ export class StatisticsComponent implements OnInit {
   }
 
   private plot(data: number[][]) {
-    let plotData: PlotlyTrace[] = [];
+    const plotData: PlotlyTrace[] = [];
     for (let i = 0; i < data.length; i++) {
       plotData.push({
         y: data[i],
@@ -101,7 +101,7 @@ export class StatisticsComponent implements OnInit {
         type: 'box'
       });
     }
-    let layout = {
+    const layout = {
       yaxis: {
         title: localStorage.getItem('locale').startsWith('de') ? 'Minuten' : 'Minutes',
         zeroline: false,
