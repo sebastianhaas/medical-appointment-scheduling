@@ -116,7 +116,7 @@
     "@types/jasmine": "2.6.0",
     "@types/jquery": "3.2.13",
     "@types/node": "8.0.33",
-    "@types/socket.io-client": "1.4.30",
+    "@types/socket.io-client": "1.4.31",
     "@types/source-map": "0.5.1",
     "@types/uglify-js": "2.6.29",
     "@types/webpack": "3.0.13",
