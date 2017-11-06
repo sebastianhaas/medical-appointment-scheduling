@@ -151,7 +151,7 @@
     "karma-webpack": "2.0.5",
     "materialize-css": "^0.100.2",
     "ng-router-loader": "^2.1.0",
-    "ngc-webpack": "3.2.2",
+    "ngc-webpack": "4.0.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.1",
     "optimize-js-plugin": "0.0.4",
