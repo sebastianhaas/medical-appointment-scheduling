@@ -69,7 +69,7 @@
     "webpack": "webpack"
   },
   "dependencies": {
-    "@angular/common": "2.4.10",
+    "@angular/common": "5.0.2",
     "@angular/compiler": "2.4.10",
     "@angular/core": "2.4.10",
     "@angular/forms": "2.4.10",
