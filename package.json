@@ -127,7 +127,7 @@
     "browserslist": "^2.0.0",
     "codelyzer": "~3.2.1",
     "commander": "^2.9.0",
-    "copy-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^4.2.1",
     "css-loader": "^0.28.0",
     "csv-parse": "^2.0.0",
     "es6-promise-loader": "^1.0.1",
