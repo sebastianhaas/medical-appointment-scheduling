@@ -107,7 +107,7 @@
     "zone.js": "0.7.8"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "2.4.10",
+    "@angular/compiler-cli": "5.0.4",
     "@angular/platform-server": "2.4.10",
     "@types/async": "2.0.45",
     "@types/core-js": "0.9.43",
