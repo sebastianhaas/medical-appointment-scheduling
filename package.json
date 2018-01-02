@@ -117,7 +117,7 @@
     "@types/jquery": "3.2.16",
     "@types/node": "8.0.47",
     "@types/socket.io-client": "1.4.31",
-    "@types/source-map": "0.5.2",
+    "@types/source-map": "0.5.7",
     "@types/uglify-js": "2.6.29",
     "@types/webpack": "3.0.14",
     "add-asset-html-webpack-plugin": "^2.0.1",
