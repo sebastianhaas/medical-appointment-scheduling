@@ -104,7 +104,7 @@
     "primeui": "4.1.15",
     "rxjs": "^5.4.3",
     "socket.io-client": "2.0.4",
-    "zone.js": "0.7.8"
+    "zone.js": "0.8.20"
   },
   "devDependencies": {
     "@angular/compiler-cli": "2.4.10",
