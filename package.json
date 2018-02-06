@@ -126,7 +126,7 @@
     "awesome-typescript-loader": "~3.2.1",
     "browserslist": "^2.0.0",
     "codelyzer": "~3.2.1",
-    "commander": "^2.9.0",
+    "commander": "^2.14.0",
     "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.28.0",
     "csv-parse": "^2.0.0",
