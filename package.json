@@ -74,7 +74,7 @@
     "@angular/core": "2.4.10",
     "@angular/forms": "2.4.10",
     "@angular/http": "2.4.10",
-    "@angular/material": "2.0.0-beta.2",
+    "@angular/material": "5.2.4",
     "@angular/platform-browser": "2.4.10",
     "@angular/platform-browser-dynamic": "2.4.10",
     "@angular/platform-server": "2.4.10",
