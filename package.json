@@ -77,7 +77,7 @@
     "@angular/material": "2.0.0-beta.2",
     "@angular/platform-browser": "2.4.10",
     "@angular/platform-browser-dynamic": "2.4.10",
-    "@angular/platform-server": "2.4.10",
+    "@angular/platform-server": "5.2.8",
     "@angular/router": "3.4.10",
     "@angularclass/conventions-loader": "1.0.2",
     "@angularclass/hmr": "2.1.3",
