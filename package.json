@@ -186,7 +186,7 @@
     "url": "https://github.com/sebastianhaas/medical-appointment-scheduling.git/issues"
   },
   "engines": {
-    "node": "^6.10.0",
+    "node": "10",
     "npm": "^3.10.10"
   }
 }
