@@ -111,7 +111,7 @@
     "@angular/platform-server": "2.4.10",
     "@types/async": "2.0.45",
     "@types/core-js": "0.9.43",
-    "@types/hammerjs": "2.0.35",
+    "@types/hammerjs": "2.0.36",
     "@types/handlebars": "^4.0.31",
     "@types/jasmine": "2.6.2",
     "@types/jquery": "3.2.16",
