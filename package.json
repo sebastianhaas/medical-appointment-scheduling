@@ -118,7 +118,7 @@
     "@types/node": "8.0.47",
     "@types/socket.io-client": "1.4.31",
     "@types/source-map": "0.5.2",
-    "@types/uglify-js": "2.6.29",
+    "@types/uglify-js": "3.0.4",
     "@types/webpack": "3.0.14",
     "add-asset-html-webpack-plugin": "^2.0.1",
     "angular2-template-loader": "0.6.0",
