@@ -174,7 +174,7 @@
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
     "webpack-dev-middleware": "1.12.0",
-    "webpack-dev-server": "2.9.3",
+    "webpack-dev-server": "3.1.14",
     "webpack-dll-bundles-plugin": "1.0.0-beta.5",
     "webpack-merge": "4.1.0"
   },
