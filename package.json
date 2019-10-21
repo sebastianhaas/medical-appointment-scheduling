@@ -129,7 +129,7 @@
     "commander": "^2.9.0",
     "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.28.0",
-    "csv-parse": "^2.0.0",
+    "csv-parse": "^4.6.4",
     "es6-promise-loader": "^1.0.1",
     "exports-loader": "^0.6.3",
     "expose-loader": "^0.7.1",
