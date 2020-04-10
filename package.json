@@ -94,7 +94,7 @@
     "http-server": "^0.10.0",
     "humanize-duration": "^3.9.1",
     "ie-shim": "^0.1.0",
-    "jquery": "^3.1.1",
+    "jquery": "^3.5.0",
     "later": "^1.2.0",
     "md2": "0.0.17",
     "moment": "^2.17.1",
